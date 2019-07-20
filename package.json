@@ -6,12 +6,12 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "server": "nodemon server.js"
+
   },
   "private": true,
   "repository": {
@@ -32,6 +32,7 @@
     "@angular/cdk": "^6.4.7",
     "@angular/common": "^6.0.0",
     "@angular/cli": "^6.0.8",
+    "@angular/compiler-cli": "^8.1.1",
     "@angular/compiler": "^6.0.0",
     "@angular/core": "^6.0.0",
     "@angular/forms": "^6.0.0",

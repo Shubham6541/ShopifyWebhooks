@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class CustomerUpdateComponent implements OnInit {
 
-  constructor(private service: CustomerService ,
+  constructor(public service: CustomerService ,
     private departmentService: DepartmentService,
     private notificationService: NotificationService,
     public dialogRef: MatDialogRef<CustomerUpdateComponent>,
