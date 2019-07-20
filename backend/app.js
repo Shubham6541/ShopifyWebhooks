@@ -14,6 +14,10 @@ const crypto = require('crypto');
 const secretKey = '906553359f40a44814f730f87adfa1f44b32be4f7c65768262c96b5461d9b936';
 const order_create =  require('../models/order_create');
 
+app.use(bodyParser.json());
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
+
 
 mongoose
     .connect(
@@ -25,7 +29,7 @@ mongoose
       console.log("Connection failed!");
     });
 
-app.use(bodyParser.json());
+
   app.use(bodyParser.urlencoded({ extended: false }));
 
   app.use((req, res, next) => {

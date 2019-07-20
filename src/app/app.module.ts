@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { MaterialModule } from "./material/material.module";
 import { ReactiveFormsModule,FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { DatePipe } from '@angular/common';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AppComponent } from './app.component';
@@ -36,9 +37,11 @@ import { CustomerService } from './shared/customer.service';
     BrowserAnimationsModule,
     RouterModule,
     HttpClientModule,
-
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     FormsModule,
     AppRoutingModule,
+    FormsModule,
 
     FlashMessagesModule.forRoot(),
 
