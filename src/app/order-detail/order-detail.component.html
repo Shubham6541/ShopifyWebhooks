@@ -1,0 +1,167 @@
+<div class="wrapper">
+  <div class="contact">
+
+<mat-toolbar style="background:#b00bd1" >
+<strong font size="60" style="">Order Summary</strong>
+<span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<flash-messages></flash-messages>
+</div>
+<mat-card class="first-card">
+    <mat-accordion class="example-headers-align">
+        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle  >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Customer Details
+            </mat-panel-title>
+
+            <mat-panel-description>
+
+              <mat-icon >account_circle</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-card class="example-card">
+              <mat-card-header>
+                <mat-card-title>{{element.customer.default_address.name}}</mat-card-title>
+                <mat-card-subtitle>{{element.customer.default_address.city}},{{element.customer.default_address.province}}</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                  <mat-grid-list cols="2" rowHeight="150px">
+                      <mat-grid-tile color="primary">
+                          Company<br>Email<br>Phone<br>Tag<br>Total Order Placed<br>Total Money Spent
+                      </mat-grid-tile>
+                      <mat-grid-tile>
+                          {{element.customer.default_address.company}}
+                          <br>{{element.customer.email}}
+                          <br>{{element.customer.default_address.phone}}
+                          <br>{{element.customer.tags}}
+                          <br>{{element.customer.orders_count}}
+                          <br>{{element.customer.total_spent}}
+                      </mat-grid-tile>
+                  </mat-grid-list>
+              </mat-card-content>
+            </mat-card>
+
+          <mat-action-row>
+            <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Product Details
+            </mat-panel-title>
+            <mat-panel-description>
+
+                <i class="material-icons" color="warn">
+                    local_grocery_store
+                    </i>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <mat-card class="example-card">
+
+              <mat-card-content>
+                  <mat-grid-list cols="3" rowHeight="250px">
+                      <mat-grid-tile color="primary">
+                          Order Number<br>Item Details<ng-container *ngFor="let item of element.line_items"><br></ng-container>Total Weight<br>Totall Price<br> Total Tax<br>Total Discount<br>Track Order<br><br><br>
+                      </mat-grid-tile>
+                      <mat-grid-tile [colspan]= "2" class="order-url">
+                          {{element.order_number}}
+                          <ng-container *ngFor="let item of element.line_items"><br>{{item.title}}({{item.variant_title}}) X {{item.quantity}} = ₹ {{item.price}} </ng-container>
+
+                          <br>{{element.total_weight}} gm
+                          <br>₹ {{element.total_price}}
+                          <br>₹ {{element.total_tax}}
+                          <br>₹ {{element.total_discounts}}
+                          <br>{{element.order_status_url}}
+
+                      </mat-grid-tile>
+
+                  </mat-grid-list>
+              </mat-card-content>
+            </mat-card>
+          <mat-action-row>
+            <button mat-raised-button color="warn" (click)="prevStep()">Previous</button>
+            <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Billing Address
+            </mat-panel-title>
+            <mat-panel-description>
+
+                <i class="material-icons">
+                    dvr
+                    </i>            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <mat-card class="example-card">
+
+              <mat-card-content>
+                  <mat-grid-list cols="3" rowHeight="125px">
+                      <mat-grid-tile [colspan]="1" color="primary">
+                          Name<br>Phone<br>Address<br><br><br><br>
+                      </mat-grid-tile>
+                      <mat-grid-tile [colspan]="2">
+                          {{element.customer.default_address.name}}
+                          <br>{{element.billing_address.phone}}
+                          <br>{{element.billing_address.address2}}<br>{{element.billing_address.address1}}
+                          <br>{{element.billing_address.city}},{{element.billing_address.province}}
+                          <br>{{element.billing_address.country}},{{element.billing_address.zip}}
+
+                      </mat-grid-tile>
+                  </mat-grid-list>
+              </mat-card-content>
+            </mat-card>
+
+          <mat-action-row>
+            <button mat-raised-button color="warn" (click)="prevStep()">Previous</button>
+            <button mat-raised-button color="primary" (click)="nextStep()">Next</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Shipping Address
+              </mat-panel-title>
+              <mat-panel-description>
+
+                  <i class="material-icons">
+                      flight_takeoff
+                      </i>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-card class="example-card">
+
+                <mat-card-content>
+                    <mat-grid-list cols="3" rowHeight="125px">
+                        <mat-grid-tile [colspan]="1" color="primary">
+                            Name<br>Phone<br>Address<br><br><br><br>
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="2">
+                            {{element.customer.default_address.name}}
+                            <br>{{element.shipping_address.phone}}
+                            <br>{{element.shipping_address.address2}}<br>{{element.shipping_address.address1}}
+                            <br>{{element.shipping_address.city}},{{element.shipping_address.province}}
+                            <br>{{element.shipping_address.country}},{{element.shipping_address.zip}}
+
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                </mat-card-content>
+              </mat-card>
+
+            <mat-action-row>
+              <button mat-raised-button color="warn" (click)="prevStep()">Previous</button>
+              <button mat-raised-button color="primary" (click)="nextStep()">End</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+      </mat-accordion></mat-card>
+</div>

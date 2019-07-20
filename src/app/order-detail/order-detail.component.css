@@ -1,0 +1,91 @@
+
+.example-headers-align .mat-expansion-panel-header-title{
+  flex-basis: 0;
+  font-weight: 500 ;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+
+}
+.example-headers-align .mat-expansion-panel-header.mat-expanded {
+  background: rgb(104, 233, 250);
+}
+
+.example-card{
+  background: rgb(252, 159, 255);
+  width: 100%;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 700;
+  font-size: large;
+}
+.first-card{
+  background: rgb(11, 245, 128);
+  justify-items: center;
+
+};
+.mat-card-header{
+  font-size: larger;
+}
+
+.first-card .mat-card-title,
+.first-card .mat-card-subtitle{
+  font-size : larger;
+  font-weight: bold;
+
+}
+
+
+.mat-action-row{
+  background: rgb(106, 235, 252);
+};
+
+
+
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+  font-weight: 500;
+  justify-items: right;
+};
+
+
+.mat-expansion-panel{
+  background: violet;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  position: absolute;
+  right: 5%;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
+
+.mat-expansion-panel-header-description {
+  position: relative;
+
+
+}
+
+
+.example-card {
+  position: relative;
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-self: center;
+}
+
+
+
+.example-headers-align .mat-expansion-panel{
+  background: rgb(252, 195, 73);
+}
+
+.order-url{
+  word-break: break-all;
+}
+
+.wrapper
+{
+
+}

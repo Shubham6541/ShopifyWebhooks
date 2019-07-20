@@ -1,0 +1,26 @@
+.mat-toolbar
+{
+  background: rgb(247, 78, 247);
+  width:100%;
+}
+
+.container
+{
+  width: 78% ;
+  max-height: 350px;
+  position: relative;
+  border-width: thick;
+
+  background-color: rgb(145, 238, 255);
+  margin: auto;
+  padding: 1em;
+}
+
+.wrapper{
+  box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+  border-width: thick;
+}
+
+.wrapper > *{
+  padding: 1em;
+}
