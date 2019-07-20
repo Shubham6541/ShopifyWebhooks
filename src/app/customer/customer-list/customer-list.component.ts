@@ -1,6 +1,5 @@
-import { EmployeeComponent } from './../employee/employee.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { EmployeeService } from '../../shared/employee.service';
+import {  CustomerService } from '../../shared/customer.service';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { DepartmentService } from '../../shared/department.service';
 import { MatDialog, MatDialogConfig } from "@angular/material";
@@ -9,23 +8,24 @@ import { DialogService } from '../../shared/dialog.service';
 import { OrderDetailComponent } from '../../order-detail/order-detail.component';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import 'sweetalert2/src/sweetalert2.scss'
+import { CustomerUpdateComponent } from '../customer-update/customer-update.component';
 
 
 @Component({
-  selector: 'app-employee-list',
-  templateUrl: './employee-list.component.html',
-  styleUrls: ['./employee-list.component.css']
+  selector: 'app-customer-list',
+  templateUrl: './customer-list.component.html',
+  styleUrls: ['./customer-list.component.css']
 })
-export class EmployeeListComponent implements OnInit {
+export class CustomerListComponent implements OnInit {
 
-  constructor(private service: EmployeeService,
+  constructor(private service: CustomerService ,
     private departmentService: DepartmentService,
     private dialog: MatDialog,
     private notificationService: NotificationService,
     private dialogService: DialogService) { }
 
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['order_number','fullName', 'email', 'mobile', 'city', 'departmentName','details', 'actions'];
+  displayedColumns: string[] = ['order_number','fullName', 'email', 'mobile', 'city', 'amount','details', 'actions'];
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   searchKey: string;
@@ -76,7 +76,7 @@ export class EmployeeListComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = "450px";
 
-    this.dialog.open(EmployeeComponent,dialogConfig);
+    this.dialog.open(CustomerUpdateComponent,dialogConfig);
     }
     else{
       Swal.fire({

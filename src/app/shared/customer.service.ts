@@ -5,17 +5,11 @@ import * as _ from 'lodash';
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
-//import { Http, Headers } from '@angular/http';
-import { map } from 'rxjs/operators';
-import { Route } from '@angular/compiler/src/core';
-import { element } from '@angular/core/src/render3/instructions';
-
-
 
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeService {
+export class CustomerService {
 
   private postsUpdated = new Subject<any>();
   posts : any = [];
@@ -44,7 +38,7 @@ export class EmployeeService {
 
 
   getOrderlist(){
-   this.posts = this.http.get('http://localhost:3000/order/list');
+   this.posts = this.http.get('order/list');
    return this.posts;
   }
 
@@ -54,18 +48,16 @@ export class EmployeeService {
 
 
     console.log("updateorder",element);
-    this.http.post("http://localhost:3000/order/update",element)
+    this.http.post("order/update",element)
     .subscribe(() => {
-      //const updatedPosts = this.posts.filter(post => post.id !== postId);
-      //this.posts = updatedPosts;
-      //this.postsUpdated.next([...this.posts]);
+
     });
     console.log(element);
 
   }
 
   deleteOrder(element_id){
-    this.http.delete("http://localhost:3000/order/delete/"+element_id).subscribe(()=>{
+    this.http.delete("order/delete/"+element_id).subscribe(()=>{
 
     });
     console.log("final delete",element_id);

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { EmployeeService } from '../shared/employee.service';
+import { CustomerService } from '../shared/customer.service';
 import { DepartmentService } from '../shared/department.service';
 import { NotificationService } from '../shared/notification.service';
 import { MatDialogRef } from '@angular/material';
@@ -13,7 +13,7 @@ import { MatDialogRef } from '@angular/material';
 export class OrderDetailComponent implements OnInit {
 
   constructor(
-    private service: EmployeeService ,
+    private service: CustomerService ,
     private departmentService: DepartmentService ,
     private notificationService: NotificationService ,
     public dialogRef: MatDialogRef<OrderDetailComponent>

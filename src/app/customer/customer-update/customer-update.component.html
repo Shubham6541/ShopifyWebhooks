@@ -1,0 +1,41 @@
+
+<div class="container">
+    <mat-toolbar>
+      <strong>Update Customer Details</strong>
+      <span class="fill-remaining-space"></span>
+      <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+
+    </mat-toolbar>
+    <br>
+    <strong font-size="50">{{element.customer.default_address.name}}</strong>
+    <br>
+    <span font-size="50">{{element.customer.default_address.city}},{{element.customer.default_address.province}}</span>
+
+    <br>
+    <br>
+    <form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+
+      <mat-grid-list cols="1" rowHeight="300px">
+
+          <div class="controles-container">
+
+
+            <mat-form-field>
+              <input formControlName="email" matInput placeholder="Email">
+              <mat-error>Invalid email address.</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName="mobile" matInput placeholder="Phone No.*">
+              <mat-error *ngIf="service.form.controls['mobile'].errors?.required">This field is mandatory.</mat-error>
+              <mat-error *ngIf="service.form.controls['mobile'].errors?.minlength">Minimum 8 charactors needed.</mat-error>
+            </mat-form-field>
+
+            <div class="button-row">
+              <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Update</button>
+            </div>
+          </div>
+
+      </mat-grid-list>
+    </form>
+    </div>
+

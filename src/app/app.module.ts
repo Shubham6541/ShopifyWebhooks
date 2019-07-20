@@ -8,26 +8,27 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { DatePipe } from '@angular/common';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AppComponent } from './app.component';
-import { EmployeesComponent } from './employees/employees.component';
-import { EmployeeComponent } from './employees/employee/employee.component';
-import { EmployeeService } from './shared/employee.service';
+
 import { environment } from '../environments/environment';
 import { DepartmentService } from './shared/department.service';
-import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { RouterModule } from '@angular/router';
+import { CustomerComponent } from './customer/customer.component';
+import { CustomerUpdateComponent } from './customer/customer-update/customer-update.component';
+import { CustomerListComponent } from './customer/customer-list/customer-list.component';
+import { CustomerService } from './shared/customer.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeesComponent,
-    EmployeeComponent,
-    EmployeeListComponent,
     MatConfirmDialogComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    CustomerComponent,
+    CustomerUpdateComponent,
+    CustomerListComponent
   ],
   imports: [
     BrowserModule,
@@ -44,8 +45,8 @@ import { RouterModule } from '@angular/router';
     FlashMessagesModule.forRoot(),
 
   ],
-  providers: [EmployeeService,DepartmentService,DatePipe],
+  providers: [CustomerService ,DepartmentService,DatePipe],
   bootstrap: [AppComponent],
-  entryComponents:[EmployeeComponent,OrderDetailComponent,MatConfirmDialogComponent]
+  entryComponents:[CustomerUpdateComponent,OrderDetailComponent,MatConfirmDialogComponent]
 })
 export class AppModule { }

@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from 'src/app/shared/customer.service';
 import { MatDialogRef } from '@angular/material';
-
-import { EmployeeService } from '../../shared/employee.service';
 import { DepartmentService } from '../../shared/department.service';
 import { NotificationService } from '../../shared/notification.service';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
 
-@Component({
-  selector: 'app-employee',
-  templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css']
-})
-export class EmployeeComponent implements OnInit {
 
-  constructor(private service: EmployeeService,
+@Component({
+  selector: 'app-customer-update',
+  templateUrl: './customer-update.component.html',
+  styleUrls: ['./customer-update.component.css']
+})
+export class CustomerUpdateComponent implements OnInit {
+
+  constructor(private service: CustomerService ,
     private departmentService: DepartmentService,
     private notificationService: NotificationService,
-    public dialogRef: MatDialogRef<EmployeeComponent>,
+    public dialogRef: MatDialogRef<CustomerUpdateComponent>,
     private router: Router) { }
 
     element : any;
