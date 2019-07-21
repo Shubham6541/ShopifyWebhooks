@@ -57,7 +57,7 @@ body {
 
 .mat-column-email {
   min-width: 180px;
-  justify-content: left;
+  justify-content: center;
 }
 
 .mat-column-city{
