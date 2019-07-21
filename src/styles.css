@@ -146,7 +146,7 @@ border-radius: 0px;
 }
 
 @media
-(max-width:450px){
+(max-width:480px){
   .confirm-dialog-container .content-container{
     margin-top: 20%;
     font-size: small;
@@ -157,5 +157,11 @@ border-radius: 0px;
     min-width: 0px !important;
     height: 20px;
     padding: 0px !important;
+  };
+  .search-div{
+    margin: 10px;
+      }
+  .search-form-field{
+    width:70%;
   }
 }

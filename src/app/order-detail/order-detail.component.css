@@ -95,32 +95,32 @@ mat-form-field {
 
 @media(max-width:480px){
 .wrapper{
-  width:100%;
-  min-width:270px;
+  width:105%;
+  min-width:300px;
 }
 .contact{
-  width:100%;
+  width:100%;position: relative;
   min-width: 270px;
-}
-  .first-card{
-
-    width:95%;
-    min-width: 240px;
+};
+  .wrapper .first-card{
+    position: relative;
+    width:100%;
+    min-width: 270px;
     justify-items: left;
     justify-content: left;
     justify-self: left;
 
-  }
+  };
 
 
-  .example-headers-align{
+ .wrapper .example-headers-align{
     width: 270px;
-  }
+  },
   .example-card{
     font-size: xx-small;
-    width:92%;
+    width:100%;
 
-    min-width: 240px;
+    min-width: 260px;
     position: relative;
     justify-self: left;
     justify-content: left;
@@ -145,7 +145,8 @@ mat-form-field {
 }
 .mat-raised-button{
   max-width: 16px;
-}
+};
+
 }
 
 @media(min-width:480){
