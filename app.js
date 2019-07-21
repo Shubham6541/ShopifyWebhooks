@@ -17,7 +17,7 @@ const order_create =  require('./models/order_create');
 app.use(bodyParser.json());
 var distDir = __dirname + "/dist/";
 console.log("distDir is",distDir);
-app.use(express.static(distDir));
+//app.use(express.static(distDir));
 
 
 mongoose
