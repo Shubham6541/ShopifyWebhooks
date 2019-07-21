@@ -133,6 +133,7 @@ body {
   }
   .mat-column-email{
     width:100%;
+    justify-content: left;
   }
 
   .mat-header-row {
