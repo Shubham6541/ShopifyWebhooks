@@ -13,6 +13,7 @@ export class CustomerService {
 
   private postsUpdated = new Subject<any>();
   posts : any = [];
+  baseurl = 'https://myshopifystore6541.herokuapp.com/';
   constructor(private firebase: AngularFireDatabase, private datePipe: DatePipe,
     private http: HttpClient,
 

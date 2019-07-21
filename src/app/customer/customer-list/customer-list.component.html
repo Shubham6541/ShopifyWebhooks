@@ -8,7 +8,8 @@
   <div class="search-div">
     <h2>Order List</h2>
     <mat-form-field class="search-form-field" floatLabel="never">
-      <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()" >
+      <!--<input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()" >-->
+      <input matInput (keyup)="applyFilter1($event.target.value)" placeholder="Search">
 
       <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey"  (click)="onSearchClear()">
         <mat-icon>close</mat-icon>
@@ -16,43 +17,41 @@
     </mat-form-field>
   </div>
   <div class="mat-elevation-z8">
-    <mat-table [dataSource]="listData"  matSort>
+    <mat-table #table [dataSource]="listData"  matSort [class.isMobile]="isMobile">
         <ng-container matColumnDef="order_number">
-            <mat-header-cell *matHeaderCellDef  mat-sort-header >Order No.</mat-header-cell>
-            <mat-cell *matCellDef="let element; let row" [ngClass]="{'highlight': selectedRowIndex == row.id}">{{element.order_number }}</mat-cell>
+            <mat-header-cell *matHeaderCellDef  mat-sort-header >Order No. </mat-header-cell>
+            <mat-cell *matCellDef="let element; let row" [ngClass]="{'highlight': selectedRowIndex == row.id}"><span class="mobile-label">Order No.:</span>{{element.order_number }}</mat-cell>
           </ng-container>
       <ng-container matColumnDef="fullName">
         <mat-header-cell *matHeaderCellDef  mat-sort-header >Customer Name</mat-header-cell>
-        <mat-cell *matCellDef="let element; let row" [ngClass]="{'highlight': selectedRowIndex == row.id}">{{element.customer.default_address.name }}</mat-cell>
+        <mat-cell *matCellDef="let element; let row" [ngClass]="{'highlight': selectedRowIndex == row.id}"><span class="mobile-label">Customer Name:</span>{{element.customer.default_address.name }}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="email">
-        <mat-header-cell *matHeaderCellDef  mat-sort-header >Email</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.customer.email}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef >Email</mat-header-cell>
+        <mat-cell  class="order-url" *matCellDef="let element"><span class="mobile-label">Email:</span>{{element.customer.email}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="mobile">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Phone No.</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.customer.default_address.phone}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef>Phone No.</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <span class="mobile-label">Phone No.:</span>
+              {{element.customer.default_address.phone}}
+            </mat-cell>
       </ng-container>
       <ng-container matColumnDef="city">
         <mat-header-cell *matHeaderCellDef mat-sort-header>City</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.customer.default_address.city}}</mat-cell>
+        <mat-cell *matCellDef="let element"><span class="mobile-label">City:</span>{{element.customer.default_address.city}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="amount">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Amount</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.total_price}}</mat-cell>
+        <mat-cell *matCellDef="let element"><span class="mobile-label">Amount:</span>{{element.total_price}}</mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="details">
-        <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <button mat-raised-button color="primary" (click)="onMoreDetails(element)"><span>More Details</span></button>
-        </mat-cell>
-      </ng-container>
 
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <button mat-raised-button color="accent" (click)="onEdit(element)"><mat-icon>launch</mat-icon><span>Edit</span></button>
+            <button class='btn' mat-raised-button color="primary" (click)="onMoreDetails(element)"><span>More Details</span></button>
+          <button class='btn' mat-raised-button color="accent" (click)="onEdit(element)"><mat-icon>launch</mat-icon><span>Edit</span></button>
           <button mat-icon-button color="warn" (click)="onDelete(element.id)"><mat-icon>delete_outline</mat-icon></button>
         </mat-cell>
       </ng-container>

@@ -12,9 +12,8 @@
   width: 100%;
 }
 
-.mat-column-email {
-  flex: 0 0 25% !important;
-  width: 30px;
+.order-url{
+  word-break: break-all;
 }
 
 .mat-cell {
@@ -33,18 +32,8 @@
 
 .mat-header-row{
   background: rgb(125, 224, 241);
-
 }
 
-.mat-header-cell{
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bolder;
-  font-size: medium;
-  justify-content: center;
-  color: black;
-
-
-}
 
 .mat-paginator{
   color: black;
@@ -64,4 +53,136 @@ body {
   color: black;
   font-weight: bolder;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.mat-column-email {
+  min-width: 180px;
+  justify-content: left;
+}
+
+.mat-column-city{
+  max-width: 80px;
+}
+.mat-column-amount{
+  max-width:80px;
+}
+
+.mat-column-order_number{
+  max-width: 60px;
+}
+
+.mat-column-fullname{
+  min-width: 120px;
+}
+.mat-column-actions{
+  min-width: 240px;
+}
+
+.btn1{
+  margin: 15px;
+  min-width: 100px;
+  justify-content: center;
+  font-size: small;
+}
+.mat-header-cell{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  font-size: medium;
+  justify-content: center;
+  color: black;
+}
+
+.mobile-label {
+  display: none;
+}
+
+@media(max-width: 550px) {
+  .mobile-label {
+    width: 80px;
+    display: inline-block;
+        font-weight: bold;
+        font-size: small;
+
+
+  }
+  .mat-column-order_number{
+    max-width: 100%;
+    margin-left: 0%;
+    color: blueviolet;
+    justify-content: left;
+    justify-items: left;
+
+  }
+  .mat-column-city{
+    max-width: 100%;
+  }
+  .mat-column-amount{
+    max-width:100%;
+  }
+
+  .mat-column-order_number{
+    max-width: 100%;
+    justify-content: left;
+    justify-items: left;
+  }
+
+  .mat-column-fullname{
+    max-width: 100%;
+    min-width: 100%;
+    justify-content: right;
+  }
+  .mat-column-email{
+    width:100%;
+  }
+
+  .mat-header-row {
+    display: none;
+  }
+
+
+  .mat-row {
+    justify-content: left;
+    flex-direction: column;
+    align-items: start;
+    padding: 8px 24px;
+
+  }
+  .mat-cell{
+    font-size: small;
+  }
+  .mat-table {
+    overflow: scroll;
+    height : 100%;
+  }
+  .btn{
+    max-width: 15px;
+    font-size: x-small;
+    padding: 0 6px 0 6px;
+    justify-content: center;
+  }
+}
+@media(min-width: 550px){
+@media(max-width: 850px ){
+  .mat-column-email {
+
+    min-width: 115px;
+    justify-content: left;
+  }
+  .mat-column-order_number{
+    max-width: 30px;
+    justify-content: left;
+  }
+.mat-header-cell{
+  font-size: x-small;
+  justify-content: right;
+}
+.mat-cell{
+  font-size : x-small;
+}
+.mat-raised-button{
+  max-width: 20px;
+  font-size: x-small;
+  padding: 0 6px 0 6px;
+}
+}
 }

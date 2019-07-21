@@ -9,6 +9,7 @@ import { OrderDetailComponent } from '../../order-detail/order-detail.component'
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import 'sweetalert2/src/sweetalert2.scss'
 import { CustomerUpdateComponent } from '../customer-update/customer-update.component';
+import { viewAttached } from '@angular/core/src/render3/instructions';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class CustomerListComponent implements OnInit {
     private dialogService: DialogService) { }
 
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['order_number','fullName', 'email', 'mobile', 'city', 'amount','details', 'actions'];
+  displayedColumns: string[] = ['order_number','fullName', 'email', 'mobile', 'city', 'amount', 'actions'];
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   searchKey: string;
@@ -36,16 +37,21 @@ export class CustomerListComponent implements OnInit {
 
     this.service.getOrderlist().subscribe((res : any[])=>{
       this.posts = res;
+      this.listData = new MatTableDataSource(res);
       console.log("new post is",res);
 
-      this.listData = new MatTableDataSource(res);
+
+      console.log("listdata",this.listData);
+      console.log("i am here");
         this.listData.sort = this.sort;
         this.listData.paginator = this.paginator;
-        this.listData.filterPredicate = (data, filter) => {
+        /*this.listData.filterPredicate = (data, filter) => {
+          console.log("listdata",this.listData);
           return this.displayedColumns.some(ele => {
+            console.log("ele is ",data[ele]);
             return ele != 'actions' && data[ele].toLowerCase().indexOf(filter) != -1;
           });
-        };
+        };*/
   });
   }
 
@@ -56,10 +62,13 @@ export class CustomerListComponent implements OnInit {
   }
 
   applyFilter() {
+    console.log(this.searchKey);
     this.listData.filter = this.searchKey.trim().toLowerCase();
   }
 
-
+  applyFilter1(filterValue: string) {
+    this.listData.filter = filterValue.trim().toLowerCase();
+  }
 
 
   getUrl()
@@ -74,7 +83,25 @@ export class CustomerListComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "450px";
+    dialogConfig.maxWidth = "280vw" ;
+    var width = window.innerWidth;
+    console.log("width is",width);
+    if (width > 950){
+      console.log("widh1");
+    dialogConfig.width = "40%";
+    }
+    else if (width > 750){
+      console.log("widh1");
+    dialogConfig.width = "55%";
+    }
+    else if (width > 500){
+      dialogConfig.width = "90%";
+    }
+    else{
+      console.log("wiffy");
+      dialogConfig.width = "100%";
+      console.log(dialogConfig);
+    }
 
     this.dialog.open(CustomerUpdateComponent,dialogConfig);
     }
@@ -107,15 +134,24 @@ export class CustomerListComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
+    dialogConfig.maxWidth = "280vw" ;
     var width = window.innerWidth;
-    if (width > 750){
-    dialogConfig.width = "60%";
+    console.log("width is",width);
+    if (width > 950){
+      console.log("widh1");
+    dialogConfig.width = "55%";
+    }
+    else if (width > 850){
+      console.log("widh1");
+    dialogConfig.width = "75%";
     }
     else if (width > 500){
-      dialogConfig.width = "80%";
+      dialogConfig.width = "90%";
     }
     else{
+      console.log("wiffy");
       dialogConfig.width = "100%";
+      console.log(dialogConfig);
     }
 
     this.dialog.open(OrderDetailComponent , dialogConfig);

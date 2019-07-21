@@ -65,7 +65,9 @@ mat-form-field {
 
 
 }
-
+.mat-expansion-panel{
+  justify-content: left;
+}
 
 .example-card {
   position: relative;
@@ -89,3 +91,119 @@ mat-form-field {
 {
 
 }
+
+
+@media(max-width:480px){
+.wrapper{
+  width:100%;
+  min-width:270px;
+}
+.contact{
+  width:100%;
+  min-width: 270px;
+}
+  .first-card{
+
+    width:95%;
+    min-width: 240px;
+    justify-items: left;
+    justify-content: left;
+    justify-self: left;
+
+  }
+
+
+  .example-headers-align{
+    width: 270px;
+  }
+  .example-card{
+    font-size: xx-small;
+    width:92%;
+
+    min-width: 240px;
+    position: relative;
+    justify-self: left;
+    justify-content: left;
+
+  }
+  .mat-card-header{
+    font-size : x-small;
+  }
+  .mat-card-content{
+    font-size: xx-small;
+  }
+
+  .mat-toolbar{
+    width: 100%;
+    font-size: small;
+
+  }
+
+
+.mat-expansion-panel{
+  justify-content: left;
+}
+.mat-raised-button{
+  max-width: 16px;
+}
+}
+
+@media(min-width:480){
+@media( max-width:780 ){
+
+  .wrapper{
+    width:100%;
+
+  }
+  .contact{
+    width:100%;
+
+  }
+    .first-card{
+
+      width:95%;
+      min-width: 240px;
+      justify-items: left;
+      justify-content: left;
+      justify-self: left;
+
+    }
+
+
+    .example-headers-align{
+      width: 400px;
+    }
+    .example-card{
+      font-size: xx-small;
+      width:92%;
+
+      min-width: 240px;
+      position: relative;
+      justify-self: left;
+      justify-content: left;
+
+    }
+    .mat-card-header{
+      font-size : x-small;
+    }
+    .mat-card-content{
+      font-size: xx-small;
+    }
+
+    .mat-toolbar{
+      width: 100%;
+      font-size: small;
+
+    }
+
+
+  .mat-expansion-panel{
+    justify-content: left;
+  }
+  .mat-raised-button{
+    max-width: 16px;
+  }
+
+  }
+}
+

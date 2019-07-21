@@ -3,9 +3,6 @@
 
 
 
-div.container{
-    margin: 0px 40px;
-}
 
 .fill-remaining-space {
     /* This fills the remaining space, by using flexbox.
@@ -110,7 +107,10 @@ mat-footer-row mat-footer-cell{
     padding: 0px;
 }
 .confirm-dialog-container .content-container{
-    margin: 5px 5px 15px 5px;
+
+    margin: 5px 5px 5px 5px;
+
+    height: 20%;
     color: #8f9cb5;
     display: flex;
 }
@@ -143,4 +143,19 @@ border-radius: 0px;
     padding:  35px 16px;
     text-align: center;
     font-size: 20px;
+}
+
+@media
+(max-width:450px){
+  .confirm-dialog-container .content-container{
+    margin-top: 20%;
+    font-size: small;
+  };
+
+  .btn-dialog-close{
+    width: 20px;
+    min-width: 0px !important;
+    height: 20px;
+    padding: 0px !important;
+  }
 }
