@@ -9,7 +9,7 @@ The complete project is hosted on heroku. Url for the website is  https://myshop
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 
-Add shopify webhooks for local host
+### Add shopify webhooks for local host.
 Add this link https://myshopifystore6541.herokuapp.com/order/create to shopify store for event order/create.	
 
 
@@ -33,5 +33,5 @@ Run `ng build --prod` to build the project. The build artifacts will be stored i
 
 6. Click on the link provided to open the app
 
-Add shopify webhooks deployed apps
-Add this link (baseurl + /order/create) to shopify store for event order/create.
+### Add shopify webhooks deployed apps
+Add  baseurl + /order/create to shopify store for event order/create.
