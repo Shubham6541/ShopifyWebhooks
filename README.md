@@ -1,25 +1,24 @@
 # Shopify/webhooks
 
-This project is hosted on heroku. Url for the website is  https://myshopifystore6541.herokuapp.com/
+The complete project is hosted on heroku. Url for the website is  https://myshopifystore6541.herokuapp.com/
 
+# Chnage Config
+.env file contains the URI for mongodbconnection and the port number to host the server
 
-# Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-
-## Deployment on local host
-
-
+## App on local host
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 
-
-Add shopify webhooks
-Add this link https://myshopifystore6541.herokuapp.com/order/create to shopify store for event order/craete.	
+Add shopify webhooks for local host
+Add this link https://myshopifystore6541.herokuapp.com/order/create to shopify store for event order/create.	
 
 
 ## Deployment on heroku
+
+### Build
+
+Run `ng build --prod` to build the project. The build artifacts will be stored in the `dist/` directory. 
+
 
 1. git add .
 
@@ -34,5 +33,5 @@ Add this link https://myshopifystore6541.herokuapp.com/order/create to shopify s
 
 6. Click on the link provided to open the app
 
-Add shopify webhooks
-Add this link (baseurl + /order/create) to shopify store for event order/craete.
+Add shopify webhooks deployed apps
+Add this link (baseurl + /order/create) to shopify store for event order/create.
