@@ -1,32 +1,20 @@
 const express = require('express');
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
 const path = require('path');
 const cors = require('cors');
 const app = express();
 const jwt = require('jsonwebtoken');
 const getRawBody = require('raw-body');
 const crypto = require('crypto');
-
 const order_create =  require('../models/order_create');
-
+const connection = require('./db_connection');
 app.use(bodyParser.json());
 
 
 var distDir = __dirname + "../dist/";
 console.log("distDir is",distDir);
-app.use(express.static(distDir));
+app.use(express.static(path.join(__dirname, '../dist')));
 
-
-mongoose
-    .connect(
-      "mongodb://Shubham:Shubham0608@cluster0-shard-00-00-mmfvv.mongodb.net:27017,cluster0-shard-00-01-mmfvv.mongodb.net:27017,cluster0-shard-00-02-mmfvv.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority" ,{ useNewUrlParser: true } )
-    .then(() => {
-      console.log("Connected to database!");
-    })
-    .catch(() => {
-      console.log("Connection failed!");
-    });
 
 
   app.use(bodyParser.urlencoded({ extended: false }));
@@ -46,24 +34,24 @@ mongoose
   });
 
 
-  app.all('/*', function(req, res, next) {
+app.all('/*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     next();
-  });
+});
 
-  app.use(cors())
-  app.options('*', cors())
-
-
-  // Index Route
-  app.get('/', (req, res) => {
-    res.send('invaild endpoint here');
-  });
+app.use(cors())
+app.options('*', cors())
 
 
+// Index Route
+app.get('/', (req, res) => {
+    res.send(' here it begins');
+});
 
 
-  //receive call from shopify store webhooks
+
+
+//receive call from shopify store webhooks
 app.post('/order/create', (req, res) => {
 
     console.log(req.body);
@@ -90,7 +78,7 @@ app.post('/order/create', (req, res) => {
   })
 
 
-  //get the list of all the orders created
+//get the list of all the orders created
 app.get('/order/list',(req,res)=>{
     var data = [];
     order_create.find().then(documents =>{
