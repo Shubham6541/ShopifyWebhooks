@@ -13,7 +13,7 @@ export class CustomerService {
 
   private postsUpdated = new Subject<any>();
   posts : any = [];
-  baseurl = 'https://myshopifystore6541.herokuapp.com/';
+  baseurl = ''; //'https://myshopifystore6541.herokuapp.com/';
   constructor(private firebase: AngularFireDatabase, private datePipe: DatePipe,
     private http: HttpClient,
 
@@ -38,29 +38,23 @@ export class CustomerService {
   }
 
 
-  getOrderlist(){
-   this.posts = this.http.get('order/list');
+getOrderlist(){
+   this.posts = this.http.get(this.baseurl+'order/list');
    return this.posts;
-  }
+}
 
 
 
-  updateOrder(element){
-
-
-    console.log("updateorder",element);
-    this.http.post("order/update",element)
-    .subscribe(() => {
-
+updateOrder(element){
+  this.http.post(this.baseurl+"order/update",element)
+  .subscribe(() => {
     });
     console.log(element);
-
   }
 
-  deleteOrder(element_id){
-    this.http.delete("order/delete/"+element_id).subscribe(()=>{
-
-    });
+deleteOrder(element_id){
+    this.http.delete(this.baseurl+"order/delete/"+element_id).subscribe(()=>{
+  });
     console.log("final delete",element_id);
   }
 
