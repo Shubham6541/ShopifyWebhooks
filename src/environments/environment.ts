@@ -4,14 +4,7 @@
 
 export const environment = {
   production: false,
-  firebaseConfig : {
-    apiKey: "AIzaSyCrfwGPZUuO6IsLflLleiEPswDQeVC3mCI",
-    authDomain: "amcrud.firebaseapp.com",
-    databaseURL: "https://amcrud.firebaseio.com",
-    projectId: "amcrud",
-    storageBucket: "amcrud.appspot.com",
-    messagingSenderId: "649950187891"
-  }
+  baseurl: 'https://myshopifystore6541.herokuapp.com/'
 };
 
 /*

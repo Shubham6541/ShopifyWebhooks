@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from 'src/app/shared/customer.service';
 import { MatDialogRef } from '@angular/material';
-import { DepartmentService } from '../../shared/department.service';
 import { NotificationService } from '../../shared/notification.service';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
@@ -15,7 +14,6 @@ import { Router } from '@angular/router';
 export class CustomerUpdateComponent implements OnInit {
 
   constructor(public service: CustomerService ,
-    private departmentService: DepartmentService,
     private notificationService: NotificationService,
     public dialogRef: MatDialogRef<CustomerUpdateComponent>,
     private router: Router) { }

@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {  CustomerService } from '../../shared/customer.service';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
-import { DepartmentService } from '../../shared/department.service';
 import { MatDialog, MatDialogConfig } from "@angular/material";
 import { NotificationService } from '../../shared/notification.service';
 import { DialogService } from '../../shared/dialog.service';
@@ -20,7 +19,6 @@ import { viewAttached } from '@angular/core/src/render3/instructions';
 export class CustomerListComponent implements OnInit {
 
   constructor(private service: CustomerService ,
-    private departmentService: DepartmentService,
     private dialog: MatDialog,
     private notificationService: NotificationService,
     private dialogService: DialogService) { }

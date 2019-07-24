@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as _ from 'lodash';
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +13,11 @@ export class CustomerService {
 
   private postsUpdated = new Subject<any>();
   posts : any = [];
-  baseurl = 'https://myshopifystore6541.herokuapp.com/';
-  constructor(private firebase: AngularFireDatabase, private datePipe: DatePipe,
+  baseurl = environment.baseurl;
+
+  constructor( private datePipe: DatePipe,
     private http: HttpClient,
-
-
-
     ) { }
-
-
 
   form: FormGroup = new FormGroup({
     id: new FormControl(''),
@@ -39,6 +35,7 @@ export class CustomerService {
 
 
 getOrderlist(){
+  console.log(this.baseurl);
    this.posts = this.http.get(this.baseurl+'order/list');
    return this.posts;
 }

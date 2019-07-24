@@ -17,7 +17,7 @@
     </mat-form-field>
   </div>
   <div class="mat-elevation-z8">
-    <mat-table #table [dataSource]="listData"  matSort [class.isMobile]="isMobile">
+    <mat-table #table [dataSource]="listData"  matSort >
         <ng-container matColumnDef="order_number">
             <mat-header-cell *matHeaderCellDef  mat-sort-header >Order No. </mat-header-cell>
             <mat-cell *matCellDef="let element; let row" [ngClass]="{'highlight': selectedRowIndex == row.id}"><span class="mobile-label">Order No.:</span>{{element.order_number }}</mat-cell>

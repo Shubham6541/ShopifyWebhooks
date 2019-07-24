@@ -7,6 +7,18 @@ This project is hosted on heroku. Url for the website is  https://myshopifystore
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+
+## Deployment on local host
+
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+
+
+Add shopify webhooks
+Add this link https://myshopifystore6541.herokuapp.com/order/create to shopify store for event order/craete.	
+
+
 ## Deployment on heroku
 
 1. git add .
@@ -22,13 +34,5 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 6. Click on the link provided to open the app
 
-
-##Deployment on local host
-
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-
-
-##Add shopify webhooks
-Add this link https://myshopifystore6541.herokuapp.com/order/create to shopify store for event order/craete.	
+Add shopify webhooks
+Add this link (baseurl + /order/create) to shopify store for event order/craete.
