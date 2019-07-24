@@ -12,7 +12,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ng build --prod --output-path dist"
-
   },
   "private": true,
   "repository": {
@@ -31,10 +30,10 @@
   "dependencies": {
     "@angular/animations": "^6.1.6",
     "@angular/cdk": "^6.4.7",
-    "@angular/common": "^6.0.0",
     "@angular/cli": "^6.0.8",
-    "@angular/compiler-cli": "^8.1.1",
+    "@angular/common": "^6.0.0",
     "@angular/compiler": "^6.0.0",
+    "@angular/compiler-cli": "^8.1.1",
     "@angular/core": "^6.0.0",
     "@angular/forms": "^6.0.0",
     "@angular/http": "^6.0.0",
@@ -48,6 +47,7 @@
     "core-js": "^2.5.4",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
+    "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "firebase": "^5.4.2",
     "jsonwebtoken": "^8.5.1",
