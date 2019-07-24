@@ -2,7 +2,7 @@
 
 The complete project is hosted on heroku. Url for the website is  https://myshopifystore6541.herokuapp.com/
 
-# Chnage Config
+# Change Config
 .env file contains the URI for mongodbconnection and the port number to host the server
 
 ## App on local host
