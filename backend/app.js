@@ -1,8 +1,4 @@
 const express = require('express');
-//const app = express();
-
-//const rp = require('request-promise');
-//const exphbs = require('express-handlebars');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const path = require('path');
@@ -11,11 +7,13 @@ const app = express();
 const jwt = require('jsonwebtoken');
 const getRawBody = require('raw-body');
 const crypto = require('crypto');
-const secretKey = '906553359f40a44814f730f87adfa1f44b32be4f7c65768262c96b5461d9b936';
-const order_create =  require('./models/order_create');
+
+const order_create =  require('../models/order_create');
 
 app.use(bodyParser.json());
-var distDir = __dirname + "/dist/";
+
+
+var distDir = __dirname + "../dist/";
 console.log("distDir is",distDir);
 app.use(express.static(distDir));
 
@@ -64,8 +62,10 @@ mongoose
 
 
 
+
+  //receive call from shopify store webhooks
 app.post('/order/create', (req, res) => {
-    console.log('🎉 We got an order!');
+
     console.log(req.body);
     if(req.body.customer == null){
       req.body.customer = {
@@ -89,6 +89,8 @@ app.post('/order/create', (req, res) => {
     res.sendStatus(200);
   })
 
+
+  //get the list of all the orders created
 app.get('/order/list',(req,res)=>{
     var data = [];
     order_create.find().then(documents =>{
@@ -99,6 +101,8 @@ app.get('/order/list',(req,res)=>{
     });
 });
 
+
+//updation of phoneno. and email
 app.post('/order/update',(req,res)=>{
   console.log("i am here");
     order_create.findOne({id: req.body.id}, async function(err,order){
@@ -122,7 +126,7 @@ app.post('/order/update',(req,res)=>{
 
 
 
-
+//deletion of a particular order from a list
 app.delete("/order/delete/:id", (req, res, next) => {
   console.log("i reached here");
   order_create.deleteOne({ id: req.params.id}).then(result => {
